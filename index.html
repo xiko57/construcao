@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Construção Civil — Do Básico ao Acabamento</title>
+<title>Construa ou Reforme — Do Básico ao Acabamento</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 <style>
@@ -762,6 +762,257 @@ section { padding: 120px 0; }
 .btn-whatsapp:hover { background: #20bd5a; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(37,211,102,0.3); }
 .btn-whatsapp svg { width: 20px; height: 20px; fill: currentColor; }
 
+/* --- Contact Form --- */
+.contact-form-section {
+  background: var(--concrete);
+  padding: 120px 0;
+  position: relative;
+}
+.contact-form-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212,168,83,0.2), transparent);
+}
+.contact-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 80px;
+  align-items: start;
+}
+.contact-form-info {
+  position: sticky;
+  top: 100px;
+}
+.contact-form-details {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.contact-detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: all 0.3s;
+}
+.contact-detail-item:hover {
+  border-color: rgba(212,168,83,0.2);
+  background: rgba(212,168,83,0.04);
+}
+.contact-detail-icon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+.contact-detail-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.contact-detail-value {
+  font-size: 1rem;
+  color: var(--cream);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+a.contact-detail-value:hover {
+  color: var(--sand);
+}
+.contact-form-wrapper {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 48px;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.5px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 14px 16px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text);
+  transition: all 0.3s;
+  outline: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--sand);
+  background: rgba(212,168,83,0.04);
+  box-shadow: 0 0 0 3px rgba(212,168,83,0.1);
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+.form-group select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23d4a853' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+}
+.form-group select option {
+  background: var(--dark);
+  color: var(--text);
+}
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+  font-family: 'DM Sans', sans-serif;
+}
+.btn-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--sand);
+  color: var(--dark);
+  padding: 16px 36px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.btn-submit::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+.btn-submit:hover::before { left: 100%; }
+.btn-submit:hover {
+  background: var(--sand-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(212,168,83,0.3);
+}
+.btn-submit:active {
+  transform: translateY(0);
+}
+@media (max-width: 1024px) {
+  .contact-form-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  .contact-form-info {
+    position: static;
+  }
+}
+.btn-submit-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #25D366;
+  color: #fff;
+  padding: 18px 36px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 100%;
+}
+.btn-submit-whatsapp:hover {
+  background: #20bd5a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(37,211,102,0.3);
+}
+.btn-submit-whatsapp:active {
+  transform: translateY(0);
+}
+
+/* --- Floating WhatsApp Button --- */
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+  z-index: 998;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  animation: floatPulse 2s infinite;
+}
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 30px rgba(37,211,102,0.6);
+}
+.whatsapp-float svg {
+  width: 32px;
+  height: 32px;
+  fill: #fff;
+}
+@keyframes floatPulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
+  50% { box-shadow: 0 4px 30px rgba(37,211,102,0.7); }
+}
+
+@media (max-width: 768px) {
+  .whatsapp-float {
+    bottom: 20px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+  }
+  .whatsapp-float svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
 /* --- Footer --- */
 .footer {
   background: var(--dark);
@@ -896,15 +1147,16 @@ section { padding: 120px 0; }
 <!-- Navigation -->
 <nav class="nav" id="nav">
   <div class="container nav-inner">
-    <a href="#" class="nav-logo">CONSTRUIR<span>&amp;REFORMAR</span></a>
+    <a href="#" class="nav-logo">CONSTRUA<span> OU REFORME</span></a>
     <ul class="nav-links">
       <li><a href="#servicos">Serviços</a></li>
       <li><a href="#sobre">Sobre</a></li>
       <li><a href="#area">Área</a></li>
       <li><a href="#portfolio">Portfólio</a></li>
+      <li><a href="#formulario">Orçamento</a></li>
       <li><a href="#depoimentos">Depoimentos</a></li>
     </ul>
-    <a href="#contato" class="nav-cta">Orçamento Grátis</a>
+    <a href="#formulario" class="nav-cta">Orçamento Grátis</a>
     <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
       <span></span><span></span><span></span>
     </button>
@@ -918,8 +1170,8 @@ section { padding: 120px 0; }
   <a href="#sobre" onclick="closeMobile()">Sobre</a>
   <a href="#area" onclick="closeMobile()">Área de Atuação</a>
   <a href="#portfolio" onclick="closeMobile()">Portfólio</a>
+  <a href="#formulario" onclick="closeMobile()">Orçamento</a>
   <a href="#depoimentos" onclick="closeMobile()">Depoimentos</a>
-  <a href="#contato" onclick="closeMobile()">Orçamento</a>
 </div>
 
 <!-- Hero -->
@@ -928,14 +1180,14 @@ section { padding: 120px 0; }
   <div class="hero-bg"></div>
   <div class="hero-accent"></div>
   <div class="container hero-content">
-    <div class="hero-badge">Profissional Qualificado — Itatiba, Valinhos e Jundiaí</div>
+    <div class="hero-badge">Profissional Qualificado — Itatiba, Jundiaí e Valinhos</div>
     <h1>Do <em>alicerce</em><br>ao acabamento</h1>
     <p class="hero-desc">
       Construção, reforma e acabamento com qualidade e compromisso.
       Entregamos sua obra pronta, no prazo e com o padrão que você merece.
     </p>
     <div class="hero-actions">
-      <a href="#contato" class="btn-primary">
+      <a href="#formulario" class="btn-primary">
         Solicitar Orçamento
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
@@ -1041,7 +1293,7 @@ section { padding: 120px 0; }
       <div class="about-text reveal">
         <div class="section-label">Sobre o Profissional</div>
         <h2 class="section-title">Experiência que se vê no resultado</h2>
-        <p>Com mais de 15 anos de atuação na construção civil, trabalho com compromisso, organização e respeito ao seu patrimônio. Cada etapa da obra é acompanhada de perto, garantindo qualidade do início ao fim.</p>
+        <p>Com mais de 20 anos de atuação na construção civil, trabalho com compromisso, organização e respeito ao seu patrimônio. Cada etapa da obra é acompanhada de perto, garantindo qualidade do início ao fim.</p>
         <p>Atendo reformas residenciais, comerciais e construções novas, sempre com transparência no orçamento e cumprimento de prazos.</p>
         <ul class="about-list">
           <li>Orçamento transparente</li>
@@ -1086,14 +1338,14 @@ section { padding: 120px 0; }
           <div class="area-city">
             <div class="area-city-icon">📍</div>
             <div>
-              <div class="area-city-name">Valinhos</div>
+              <div class="area-city-name">Jundiaí</div>
               <div class="area-city-desc">Atendimento completo</div>
             </div>
           </div>
           <div class="area-city">
             <div class="area-city-icon">📍</div>
             <div>
-              <div class="area-city-name">Jundiaí</div>
+              <div class="area-city-name">Valinhos</div>
               <div class="area-city-desc">Atendimento completo</div>
             </div>
           </div>
@@ -1218,13 +1470,85 @@ section { padding: 120px 0; }
   </div>
 </section>
 
+<!-- Contact Form -->
+<section class="contact-form-section" id="formulario">
+  <div class="container">
+    <div class="contact-form-grid reveal">
+      <div class="contact-form-info">
+        <div class="section-label">Fale Comigo</div>
+        <h2 class="section-title">Peça seu orçamento</h2>
+        <p class="section-desc">Preencha o formulário ou chame direto no WhatsApp — respondo rápido.</p>
+        <div class="contact-form-details">
+          <div class="contact-detail-item">
+            <div class="contact-detail-icon">📞</div>
+            <div>
+              <div class="contact-detail-label">WhatsApp / Telefone</div>
+              <a href="https://wa.me/5511995626604" class="contact-detail-value" target="_blank">(11) 99562-6604</a>
+            </div>
+          </div>
+          <div class="contact-detail-item">
+            <div class="contact-detail-icon">📍</div>
+            <div>
+              <div class="contact-detail-label">Área de Atendimento</div>
+              <div class="contact-detail-value">Itatiba, Jundiaí e Valinhos</div>
+            </div>
+          </div>
+          <div class="contact-detail-item">
+            <div class="contact-detail-icon">⏰</div>
+            <div>
+              <div class="contact-detail-label">Horário</div>
+              <div class="contact-detail-value">Segunda a sábado, 7h às 17h</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-wrapper">
+        <form id="contactForm" class="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label for="name">NOME</label>
+            <input type="text" id="name" name="name" required placeholder="Seu nome completo">
+          </div>
+          <div class="form-group">
+            <label for="whatsapp">WHATSAPP</label>
+            <input type="tel" id="whatsapp" name="whatsapp" required placeholder="(11) 90000-0000">
+          </div>
+          <div class="form-group">
+            <label for="service">TIPO DE SERVIÇO</label>
+            <select id="service" name="service" required>
+              <option value="">Selecione o serviço</option>
+              <option value="Alvenaria / fundação">Alvenaria / fundação</option>
+              <option value="Reboco / emboço">Reboco / emboço</option>
+              <option value="Pisos / revestimentos">Pisos / revestimentos</option>
+              <option value="Pintura">Pintura</option>
+              <option value="Instalações hidráulicas">Instalações hidráulicas</option>
+              <option value="Contrapiso">Contrapiso / regularização</option>
+              <option value="Telhados / coberturas">Telhados / coberturas</option>
+              <option value="Reforma completa">Reforma completa</option>
+              <option value="Acabamento">Acabamento final</option>
+              <option value="Outro">Outro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">DESCREVA O SERVIÇO</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Ex: preciso rebocar e pintar uma sala de 20m², prazo de 2 semanas"></textarea>
+          </div>
+          <button type="submit" class="btn-submit-whatsapp">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            ENVIAR ORÇAMENTO PELO WHATSAPP
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Footer -->
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="footer-brand">CONSTRUIR<span>&amp;REFORMAR</span></div>
-        <p class="footer-desc">Profissional da construção civil especializado em obras do básico ao acabamento. Qualidade, compromisso e transparência em cada projeto. Atendendo Itatiba, Valinhos e Jundiaí.</p>
+        <div class="footer-brand">CONSTRUA<span> OU REFORME</span></div>
+        <p class="footer-desc">Profissional da construção civil especializado em obras do básico ao acabamento. Qualidade, compromisso e transparência em cada projeto. Atendendo Itatiba, Jundiaí e Valinhos.</p>
       </div>
       <div>
         <h4>Serviços</h4>
@@ -1242,13 +1566,13 @@ section { padding: 120px 0; }
         <ul class="footer-links">
           <li><a href="https://wa.me/5511995626604" target="_blank">WhatsApp</a></li>
           <li><a href="tel:+5511995626604">(11) 99562-6604</a></li>
-          <li><a href="/cdn-cgi/l/email-protection#1974786b7a70767d707677706a70762a21597e74787075377a7674"><span class="__cf_email__" data-cfemail="05686477666c6a616c6a6b6c766c6a363d456268646c692b666a68">[email&#160;protected]</span></a></li>
+          <li><a href="/cdn-cgi/l/email-protection#076a6675646e68636e68696e746e68343f47606a666e6b2964686a"><span class="__cf_email__" data-cfemail="503d312233393f34393f3e3923393f636810373d31393c7e333f3d">[email&#160;protected]</span></a></li>
           <li><a href="#">Instagram</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; 2026 Construir&amp;Reformar. Todos os direitos reservados.</span>
+      <span>&copy; 2026 Construa ou Reforme. Todos os direitos reservados.</span>
       <span>Feito com dedicação</span>
     </div>
   </div>
@@ -1323,6 +1647,33 @@ const heroObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 const statsEl = document.querySelector('.hero-stats');
 if (statsEl) heroObserver.observe(statsEl);
+
+// Contact form handler - sends via WhatsApp
+function handleSubmit(event) {
+  event.preventDefault();
+  
+  const form = event.target;
+  const name = form.name.value;
+  const whatsapp = form.whatsapp.value;
+  const service = form.service.value;
+  const message = form.message.value;
+  
+  const text = `Olá! Gostaria de solicitar um orçamento.%0A%0A` +
+    `*Nome:* ${name}%0A` +
+    `*WhatsApp:* ${whatsapp}%0A` +
+    `*Tipo de Serviço:* ${service}%0A%0A` +
+    `*Descrição:*%0A${message}`;
+  
+  window.open(`https://wa.me/5511995626604?text=${text}`, '_blank');
+  
+  form.reset();
+}
 </script>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/5511995626604?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contato via WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
 </body>
 </html>
