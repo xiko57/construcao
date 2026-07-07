@@ -1183,6 +1183,10 @@ a.contact-detail-value:hover {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.4; }
 }
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 .reveal {
   opacity: 0;
   transform: translateY(40px);
@@ -1593,7 +1597,7 @@ a.contact-detail-value:hover {
             <div class="contact-detail-icon">📧</div>
             <div>
               <div class="contact-detail-label">E-mail</div>
-              <a href="/cdn-cgi/l/email-protection#375458594443454256584245525158455a520677505a565e5b1954585a" class="contact-detail-value"><span class="__cf_email__" data-cfemail="cdaea2a3beb9bfb8aca2b8bfa8aba2bfa0a8fc8daaa0aca4a1e3aea2a0">[email&#160;protected]</span></a>
+              <a href="/cdn-cgi/l/email-protection#f89b97968b8c8a8d99978d8a9d9e978a959dc9b89f95999194d69b9795" class="contact-detail-value"><span class="__cf_email__" data-cfemail="680b07061b1c1a1d09071d1a0d0e071a050d59280f05090104460b0705">[email&#160;protected]</span></a>
             </div>
           </div>
           <div class="contact-detail-item">
@@ -1613,7 +1617,7 @@ a.contact-detail-value:hover {
         </div>
       </div>
       <div class="contact-form-wrapper">
-        <form id="contactForm" class="contact-form" onsubmit="handleSubmit(event)">
+        <form id="contactForm" class="contact-form" action="https://formspree.io/f/mnjkrkeo" method="POST">
           <div class="form-group">
             <label for="name">NOME</label>
             <input type="text" id="name" name="name" required placeholder="Seu nome completo">
@@ -1653,11 +1657,12 @@ a.contact-detail-value:hover {
               <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
               ENVIAR PELO WHATSAPP
             </button>
-            <button type="button" class="btn-submit-email" onclick="sendEmail()">
+            <button type="submit" class="btn-submit-email">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
               ENVIAR POR E-MAIL
             </button>
           </div>
+          <div id="form-message" style="display:none; margin-top:16px; padding:12px; text-align:center; font-weight:500;"></div>
         </form>
       </div>
     </div>
@@ -1688,7 +1693,7 @@ a.contact-detail-value:hover {
         <ul class="footer-links">
           <li><a href="https://wa.me/5511995626604" target="_blank">WhatsApp</a></li>
           <li><a href="tel:+5511995626604">(11) 99562-6604</a></li>
-          <li><a href="/cdn-cgi/l/email-protection#492a26273a3d3b3c28263c3b2c2f263b242c78092e24282025672a2624"><span class="__cf_email__" data-cfemail="f79498998483858296988285929198859a92c6b7909a969e9bd994989a">[email&#160;protected]</span></a></li>
+          <li><a href="/cdn-cgi/l/email-protection#7f1c10110c0b0d0a1e100a0d1a19100d121a4e3f18121e1613511c1012"><span class="__cf_email__" data-cfemail="9cfff3f2efe8eee9fdf3e9eef9faf3eef1f9addcfbf1fdf5f0b2fff3f1">[email&#160;protected]</span></a></li>
           <li><a href="#">Instagram</a></li>
         </ul>
       </div>
@@ -1792,30 +1797,64 @@ function sendWhatsApp() {
   window.open(`https://wa.me/5511995626604?text=${text}`, '_blank');
 }
 
-function sendEmail() {
-  const form = document.getElementById('contactForm');
-  const name = form.name.value;
-  const whatsapp = form.whatsapp.value;
-  const email = form.email.value;
-  const service = form.service.value;
-  const message = form.message.value;
+// Formspree AJAX submission
+const form = document.getElementById('contactForm');
+const formMessage = document.getElementById('form-message');
+
+form.addEventListener('submit', async function(event) {
+  event.preventDefault();
   
-  if (!name || !whatsapp || !email || !service || !message) {
-    alert('Por favor, preencha todos os campos.');
-    return;
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalText = submitBtn.innerHTML;
+  
+  // Disable button and show loading state
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<span style="display:inline-block;width:20px;height:20px;border:3px solid rgba(255,255,255,0.3);border-radius:50%;border-top-color:#fff;animation:spin 1s ease-in-out infinite;"></span> ENVIANDO...';
+  
+  try {
+    const formData = new FormData(form);
+    const response = await fetch('https://formspree.io/f/mnjkrkeo', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+    
+    if (response.ok) {
+      // Success
+      formMessage.style.display = 'block';
+      formMessage.style.background = 'rgba(37, 211, 102, 0.1)';
+      formMessage.style.color = '#25D366';
+      formMessage.style.border = '1px solid rgba(37, 211, 102, 0.3)';
+      formMessage.innerHTML = '✓ Mensagem enviada com sucesso! Entraremos em contato em breve.';
+      form.reset();
+      
+      // Hide message after 5 seconds
+      setTimeout(() => {
+        formMessage.style.display = 'none';
+      }, 5000);
+    } else {
+      // Error
+      const data = await response.json();
+      if (data.errors) {
+        throw new Error(data.errors.map(e => e.message).join(', '));
+      }
+      throw new Error('Erro ao enviar mensagem. Tente novamente.');
+    }
+  } catch (error) {
+    // Error handling
+    formMessage.style.display = 'block';
+    formMessage.style.background = 'rgba(192, 57, 43, 0.1)';
+    formMessage.style.color = '#e74c3c';
+    formMessage.style.border = '1px solid rgba(192, 57, 43, 0.3)';
+    formMessage.innerHTML = '✗ ' + error.message;
+  } finally {
+    // Re-enable button
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalText;
   }
-  
-  const subject = encodeURIComponent(`Orçamento - ${service} - ${name}`);
-  const body = encodeURIComponent(
-    `Nome: ${name}\n` +
-    `WhatsApp: ${whatsapp}\n` +
-    `E-mail: ${email}\n` +
-    `Tipo de Serviço: ${service}\n\n` +
-    `Descrição do Serviço:\n${message}`
-  );
-  
-  window.location.href = `mailto:construaoureforme1@gmail.com?subject=${subject}&body=${body}`;
-}
+});
 </script>
 
 <!-- Floating WhatsApp Button -->
@@ -1823,5 +1862,6 @@ function sendEmail() {
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"75124c326cb447fe934cde04713ae013","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
